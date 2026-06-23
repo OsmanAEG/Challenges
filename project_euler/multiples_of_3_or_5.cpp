@@ -1,4 +1,4 @@
-// Project Euler: Multiples of 3 or 5
+// Project Euler: 1
 // Multiples of 3 or 5
 
 #include <iostream>
