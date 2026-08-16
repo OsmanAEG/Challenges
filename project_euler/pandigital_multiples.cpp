@@ -34,7 +34,7 @@ int main() {
       result += std::to_string(product);
       ++n;
 
-      if(is_pandigital(result)) {
+      if(result.size() == result_limit && is_pandigital(result)) {
         max = std::max(max, std::stoull(result));
       }
     }

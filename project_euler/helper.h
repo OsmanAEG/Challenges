@@ -19,3 +19,19 @@ bool is_prime(const Int_T num) {
 
   return true;
 }
+
+// is pandigital
+template<typename String_T>
+bool is_pandigital(String_T num) {
+  String_T pandigits = "";
+
+  for(int i = 0; i < num.size(); ++i) {
+    pandigits += std::to_string(i + 1);
+  }
+
+  std::sort(num.begin(), num.end());
+
+  if(num == pandigits) return true;
+
+  return false;
+}
