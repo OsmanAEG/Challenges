@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cmath>
+#include <fstream>
 #include <iostream>
 #include <set>
 #include <string>
@@ -34,4 +35,18 @@ bool is_pandigital(String_T num) {
   if(num == pandigits) return true;
 
   return false;
+}
+
+// get input
+std::vector<std::string> get_input(std::string filename) {
+  std::ifstream file(filename);
+
+  std::vector<std::string> lines;
+  std::string line;
+
+  while(std::getline(file, line)) {
+    if(!line.empty()) lines.push_back(line);
+  }
+
+  return lines;
 }
