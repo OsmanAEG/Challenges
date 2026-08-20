@@ -38,6 +38,72 @@ bool is_pandigital(String_T num) {
   return false;
 }
 
+// is triangle number
+template<typename Int_T>
+bool is_triangle_number(Int_T num) {
+  Int_T n = 1;
+  Int_T tn = n*(n+1)/2;
+
+  while(tn < num) {
+    tn = n*(n+1)/2;
+    ++n;
+  }
+
+  if(tn == num) return true;
+
+  return false;
+}
+
+// get triangle number
+template<typename Int_T>
+Int_T get_triangle_number(Int_T n) {
+  return n*(n+1)/2;
+}
+
+// is pentagon number
+template<typename Int_T>
+bool is_pentagon_number(Int_T num) {
+  Int_T n = 1;
+  Int_T pn = n*(3*n-1)/2;
+
+  while(pn < num) {
+    pn = n*(3*n-1)/2;
+    ++n;
+  }
+
+  if(pn == num) return true;
+
+  return false;
+}
+
+// get pentagon number
+template<typename Int_T>
+Int_T get_pentagon_number(Int_T n) {
+  return n*(3*n-1)/2;
+}
+
+// is triangle number
+template<typename Int_T>
+bool is_hexagon_number(Int_T num) {
+  Int_T n = 1;
+  Int_T hn = n*(2*n-1);
+
+  while(hn < num) {
+    hn = n*(2*n-1);
+    ++n;
+  }
+
+  if(hn == num) return true;
+
+  return false;
+}
+
+// get hexagon number
+template<typename Int_T>
+Int_T get_hexagon_number(Int_T n) {
+  return n*(2*n-1);
+}
+
 // get input
 std::vector<std::string> get_input(std::string filename) {
   std::ifstream file(filename);

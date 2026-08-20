@@ -5,24 +5,6 @@
 
 using Int_T = unsigned long long;
 
-bool is_pentagon_number(Int_T num) {
-  Int_T n = 1;
-  Int_T pn = n*(3*n-1)/2;
-
-  while(pn < num) {
-    pn = n*(3*n-1)/2;
-    ++n;
-  }
-
-  if(pn == num) return true;
-
-  return false;
-}
-
-Int_T get_pentagon_number(Int_T n) {
-  return n*(3*n-1)/2;
-}
-
 int main() {
   Int_T n_max = 5000;
 
