@@ -1,3 +1,4 @@
+// Project Euler Helper Functions
 #include <algorithm>
 #include <climits>
 #include <cmath>
