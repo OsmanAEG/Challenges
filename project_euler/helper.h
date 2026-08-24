@@ -129,3 +129,103 @@ std::vector<Int_T> get_prime_factors(Int_T num) {
 
   return prime_factors;
 }
+
+// multiple strs
+template<typename String_T, typename Int_T>
+String_T multiply_strs(String_T num, Int_T multiple) {
+  String_T result = num;
+  const Int_T n = num.size();
+
+  for(Int_T m = 0; m < multiple - 1; ++m) {
+
+    bool extra = false;
+
+    for(int i = n - 1; i >= 0; --i) {
+      const int adj = result.size() - n + i;
+      int sum = (result[adj] - '0') + (num[i] - '0');
+
+      if(extra == true) sum += 1;
+
+      if(sum >= 10) {
+        result[adj] = (sum - 10) + '0';
+        extra = true;
+      } else {
+        result[adj] = sum + '0';
+        extra = false;
+      }
+    }
+
+    if(result.size() > num.size()) {
+      int i = result.size() - num.size() - 1;
+
+      while(i >= 0 && extra == true) {
+        int sum = (result[i] - '0') + 1;
+
+        if(sum >= 10) {
+          result[i] = (sum - 10) + '0';
+          extra = true;
+        } else {
+          result[i] = sum + '0';
+          extra = false;
+        }
+
+        --i;
+      }
+    }
+
+    if(extra == true) result = "1" + result;
+  }
+
+  return result;
+}
+
+// add strs
+template<typename String_T>
+String_T add_strs(String_T num1, String_T num2) {
+  if(num2.size() > num1.size()) {
+    const auto tmp = num1;
+    num1 = num2;
+    num2 = tmp;
+  }
+
+  using Int_T = unsigned long long;
+  const Int_T n = num2.size();
+
+  bool extra = false;
+
+  for(int i = n - 1; i >= 0; --i) {
+    const int adj = num1.size() - n + i;
+    int sum = (num1[adj] - '0') + (num2[i] - '0');
+
+    if(extra == true) sum += 1;
+
+    if(sum >= 10) {
+      num1[adj] = (sum - 10) + '0';
+      extra = true;
+    } else {
+      num1[adj] = sum + '0';
+      extra = false;
+    }
+  }
+
+  const int m = num1.size() - n;
+
+  for(int i = m - 1; i >= 0; --i) {
+    int sum = (num1[i] - '0');
+
+    if(extra == true) sum += 1;
+
+    if(sum >= 10) {
+      num1[i] = (sum - 10) + '0';
+      extra = true;
+    } else {
+      num1[i] = sum + '0';
+      extra = false;
+    }
+  }
+
+  if(extra == true) num1 = "1" + num1;
+  extra = false;
+
+  return num1;
+}
