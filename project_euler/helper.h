@@ -229,3 +229,15 @@ String_T add_strs(String_T num1, String_T num2) {
 
   return num1;
 }
+
+// is integer permutation
+template<typename Int_T>
+bool is_integer_permutation(Int_T num1, Int_T num2) {
+  auto num1_str = std::to_string(num1);
+  auto num2_str = std::to_string(num2);
+
+  std::sort(num1_str.begin(), num1_str.end());
+  std::sort(num2_str.begin(), num2_str.end());
+
+  return num1_str == num2_str;
+}
