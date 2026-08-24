@@ -29,5 +29,7 @@ int main() {
     std::cout << "[" << result[0] << ", " << result[1] << ", " << result[2] << "]" << std::endl;
   }
 
+  std::cout << results[1][0] << results[1][1] << results[1][2] << std::endl;
+
   return 0;
 }
