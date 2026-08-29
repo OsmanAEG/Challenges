@@ -1,5 +1,6 @@
 // Project Euler Helper Functions
 #include <algorithm>
+#include <boost/multiprecision/cpp_int.hpp>
 #include <climits>
 #include <cmath>
 #include <fstream>
@@ -240,4 +241,26 @@ bool is_integer_permutation(Int_T num1, Int_T num2) {
   std::sort(num2_str.begin(), num2_str.end());
 
   return num1_str == num2_str;
+}
+
+// factorial
+template<typename Int_T>
+Int_T factorial(Int_T num) {
+  Int_T fac = 1;
+
+  for(Int_T i = 1; i <= num; ++i) fac *= i;
+
+  return fac;
+}
+
+// combinatoric
+template<typename Int_T>
+Int_T combinatoric(Int_T n, Int_T r) {
+  Int_T n_m_r = n-r;
+
+  const auto n_fac = factorial(n);
+  const auto r_fac = factorial(r);
+  const auto n_m_r_fac = factorial(n_m_r);
+
+  return n_fac/(r_fac*n_m_r_fac);
 }
