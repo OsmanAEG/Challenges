@@ -267,3 +267,29 @@ Int_T combinatoric(Int_T n, Int_T r) {
 
   return n_fac/(r_fac*n_m_r_fac);
 }
+
+// reverse number
+template<typename Int_T>
+Int_T reverse_number(Int_T num) {
+
+  Int_T reversed = 0;
+
+  while(num > 0) {
+    reversed = reversed * 10 + num % 10;
+    num /= 10;
+  }
+
+  return reversed;
+}
+
+// is palindrome number
+template<typename Int_T>
+bool is_palindrome_number(Int_T num) {
+  return num == reverse_number(num);
+}
+
+// lychrel step
+template<typename Int_T>
+Int_T lychrel_step(Int_T num) {
+  return num + reverse_number(num);
+}
