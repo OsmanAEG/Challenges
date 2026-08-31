@@ -3,8 +3,11 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <climits>
 #include <cmath>
+#include <compare>
 #include <fstream>
+#include <functional>
 #include <iostream>
+#include <map>
 #include <set>
 #include <string>
 #include <unordered_set>
