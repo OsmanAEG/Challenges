@@ -183,6 +183,18 @@ String_T multiply_strs(String_T num, Int_T multiple) {
   return result;
 }
 
+// power
+template<typename Int_T>
+auto power_str(const Int_T a, const Int_T b) {
+  std::string result = "1";
+
+  for(Int_T i = 0; i < b; ++i) {
+    result = multiply_strs(result, a);
+  }
+
+  return result;
+}
+
 // add strs
 template<typename String_T>
 String_T add_strs(String_T num1, String_T num2) {
