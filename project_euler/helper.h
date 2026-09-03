@@ -305,3 +305,25 @@ template<typename Int_T>
 Int_T lychrel_step(Int_T num) {
   return num + reverse_number(num);
 }
+
+// add fraction
+template<typename Int_T>
+std::pair<Int_T, Int_T> add_fraction(Int_T num1, Int_T den1, Int_T num2, Int_T den2) {
+  const Int_T num = num1*den2 + num2*den1;
+  const Int_T den = den1*den2;
+
+  return {num, den};
+}
+
+// greatest common factor
+template<typename Int_T>
+Int_T greatest_common_factor(Int_T num1, Int_T num2) {
+  const Int_T num_max = (num1 > num2) ? num1 : num2;
+  const Int_T num_min = (num1 <= num2) ? num2 : num1;
+
+  for(Int_T i = num_min; i >= 0; --i) {
+    if(num1%i == 0 && num2%i == 0) return i;
+  }
+
+  return 1;
+}
