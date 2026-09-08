@@ -329,3 +329,13 @@ Int_T greatest_common_factor(Int_T num1, Int_T num2) {
 
   return 1;
 }
+
+// get list of primes
+template<typename Int_T>
+std::vector<Int_T> get_list_of_primes(const Int_T N) {
+  std::vector<Int_T> primes;
+
+  for(Int_T i = 2; i < N; ++i) if(is_prime(i)) primes.push_back(i);
+
+  return primes;
+}
