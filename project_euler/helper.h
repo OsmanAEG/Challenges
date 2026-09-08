@@ -1,5 +1,6 @@
 // Project Euler Helper Functions
 #include <algorithm>
+#include <array>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <climits>
 #include <cmath>
@@ -7,6 +8,7 @@
 #include <fstream>
 #include <functional>
 #include <iostream>
+#include <limits>
 #include <map>
 #include <set>
 #include <string>
