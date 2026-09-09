@@ -67,6 +67,28 @@ Int_T get_triangle_number(Int_T n) {
   return n*(n+1)/2;
 }
 
+// is square number
+template<typename Int_T>
+bool is_square_number(Int_T num) {
+  Int_T n = 1;
+  Int_T sn = n*n;
+
+  while(sn < num) {
+    sn = n*n;
+    ++n;
+  }
+
+  if(sn == num) return true;
+
+  return false;
+}
+
+// get square number
+template<typename Int_T>
+Int_T get_square_number(Int_T n) {
+  return n*n;
+}
+
 // is pentagon number
 template<typename Int_T>
 bool is_pentagon_number(Int_T num) {
@@ -89,7 +111,7 @@ Int_T get_pentagon_number(Int_T n) {
   return n*(3*n-1)/2;
 }
 
-// is triangle number
+// is hexagon number
 template<typename Int_T>
 bool is_hexagon_number(Int_T num) {
   Int_T n = 1;
@@ -109,6 +131,50 @@ bool is_hexagon_number(Int_T num) {
 template<typename Int_T>
 Int_T get_hexagon_number(Int_T n) {
   return n*(2*n-1);
+}
+
+// is heptagon number
+template<typename Int_T>
+bool is_heptagon_number(Int_T num) {
+  Int_T n = 1;
+  Int_T hn = n*(5*n-3)/2;
+
+  while(hn < num) {
+    hn = n*(5*n-3)/2;
+    ++n;
+  }
+
+  if(hn == num) return true;
+
+  return false;
+}
+
+// get heptagon number
+template<typename Int_T>
+Int_T get_heptagon_number(Int_T n) {
+  return n*(5*n-3)/2;
+}
+
+// is octagonal number
+template<typename Int_T>
+bool is_octagon_number(Int_T num) {
+  Int_T n = 1;
+  Int_T on = n*(3*n-2);
+
+  while(on < num) {
+    on = n*(3*n-2);
+    ++n;
+  }
+
+  if(on == num) return true;
+
+  return false;
+}
+
+// get octagonal number
+template<typename Int_T>
+Int_T get_octagon_number(Int_T n) {
+  return n*(3*n-2);
 }
 
 // get input
