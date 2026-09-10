@@ -1,6 +1,7 @@
 // Project Euler Helper Functions
 #include <algorithm>
 #include <array>
+#include <boost/math/special_functions/cbrt.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <climits>
 #include <cmath>
@@ -12,6 +13,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <unordered_set>
 #include <vector>
 
@@ -404,4 +406,25 @@ std::vector<Int_T> get_list_of_primes(const Int_T N) {
   for(Int_T i = 2; i < N; ++i) if(is_prime(i)) primes.push_back(i);
 
   return primes;
+}
+
+// has cube root
+template<typename Int_T>
+bool has_cube_root(const Int_T num) {
+  const Int_T cube_root = static_cast<Int_T>(std::round(std::cbrt(num)));
+
+  bool has_cube = cube_root*cube_root*cube_root == num;
+
+  return has_cube;
+}
+
+// get permutations
+std::vector<std::string> get_permutations(std::string str) {
+  std::sort(str.begin(), str.end());
+
+  std::vector<std::string> permutations{str};
+
+  while(std::next_permutation(str.begin(), str.end())) permutations.push_back(str);
+
+  return permutations;
 }
