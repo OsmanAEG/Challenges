@@ -9,7 +9,7 @@ public:
     int low = 0;
     int high = nums.size() - 1;
 
-    while(low <= high) {
+    while(low < high) {
       int mid = (high + low)/2;
 
       const int low_num = nums[low];
