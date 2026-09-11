@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <array>
 #include <boost/math/special_functions/cbrt.hpp>
+#include <boost/math/special_functions/pow.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <climits>
 #include <cmath>
