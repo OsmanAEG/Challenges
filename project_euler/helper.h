@@ -389,14 +389,7 @@ std::pair<Int_T, Int_T> add_fraction(Int_T num1, Int_T den1, Int_T num2, Int_T d
 // greatest common factor
 template<typename Int_T>
 Int_T greatest_common_factor(Int_T num1, Int_T num2) {
-  const Int_T num_max = (num1 > num2) ? num1 : num2;
-  const Int_T num_min = (num1 <= num2) ? num2 : num1;
-
-  for(Int_T i = num_min; i >= 0; --i) {
-    if(num1%i == 0 && num2%i == 0) return i;
-  }
-
-  return 1;
+  return std::gcd(num1, num2);
 }
 
 // get list of primes
@@ -428,4 +421,21 @@ std::vector<std::string> get_permutations(std::string str) {
   while(std::next_permutation(str.begin(), str.end())) permutations.push_back(str);
 
   return permutations;
+}
+
+template<typename Int_T>
+Int_T totient(Int_T num) {
+  Int_T result = num;
+
+  for(Int_T p = 2; p <= num / p; ++p) {
+    if(num % p == 0) {
+      result -= result / p;
+
+      while(num % p == 0) num /= p;
+    }
+  }
+
+  if(num > 1) result -= result / num;
+
+  return result;
 }
