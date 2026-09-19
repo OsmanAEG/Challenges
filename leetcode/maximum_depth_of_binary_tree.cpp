@@ -18,10 +18,16 @@ public:
   int max_depth = 0;
 
   void find_max_depth(TreeNode* root, int depth) {
-
+    if(root == nullptr) {
+      max_depth = std::max(max_depth, depth);
+    } else {
+      find_max_depth(root->left,  depth + 1);
+      find_max_depth(root->right, depth + 1);
+    }
   }
 
   int maxDepth(TreeNode* root) {
-    find_max_depth()
+    find_max_depth(root, 0);
+    return max_depth;
   }
 };
