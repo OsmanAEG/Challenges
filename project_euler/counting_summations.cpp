@@ -1,4 +1,4 @@
-//Project Euler: 76
+// Project Euler: 76
 // Counting Summations
 
 #include "helper.h"
