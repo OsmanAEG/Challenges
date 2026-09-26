@@ -440,18 +440,3 @@ Int_T totient(Int_T num) {
 
   return result;
 }
-
-// num combinations
-template<typename Int_T>
-Int_T num_combinations(Int_T n) {
-  std::vector<Int_T> ways(n + 1, 0);
-  ways[0] = 1;
-
-  for(Int_T size = 1; size <= n; ++size) {
-    for(Int_T total = size; total <= n; ++total) {
-      ways[total] += ways[total - size];
-    }
-  }
-
-  return ways[n];
-}
