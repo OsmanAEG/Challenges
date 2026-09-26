@@ -423,6 +423,7 @@ std::vector<std::string> get_permutations(std::string str) {
   return permutations;
 }
 
+// totient
 template<typename Int_T>
 Int_T totient(Int_T num) {
   Int_T result = num;
@@ -438,4 +439,19 @@ Int_T totient(Int_T num) {
   if(num > 1) result -= result / num;
 
   return result;
+}
+
+// num combinations
+template<typename Int_T>
+Int_T num_combinations(Int_T n) {
+  std::vector<Int_T> ways(n + 1, 0);
+  ways[0] = 1;
+
+  for(Int_T size = 1; size <= n; ++size) {
+    for(Int_T total = size; total <= n; ++total) {
+      ways[total] += ways[total - size];
+    }
+  }
+
+  return ways[n];
 }
