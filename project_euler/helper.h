@@ -443,3 +443,20 @@ Int_T totient(Int_T num) {
 
   return result;
 }
+
+// binomial coefficient
+template<typename Int_T>
+Int_T binomial_coefficient(Int_T m, Int_T n) {
+  if(n > m) return 0;
+
+  if(n > m - n) n = m - n;
+
+  Int_T result = 1;
+
+  for(Int_T i = 1; i <= n; ++i) {
+    result *= m - n + i;
+    result /= i;
+  }
+
+  return result;
+}
