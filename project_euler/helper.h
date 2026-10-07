@@ -460,3 +460,18 @@ Int_T binomial_coefficient(Int_T m, Int_T n) {
 
   return result;
 }
+
+// square digits
+template<typename Int_T>
+Int_T square_digits(Int_T num) {
+  Int_T result = 0;
+
+  const auto num_str = std::to_string(num);
+
+  for(const auto& d : num_str) {
+    const Int_T s = d - '0';
+    result += s*s;
+  }
+
+  return result;
+}
