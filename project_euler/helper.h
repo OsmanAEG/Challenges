@@ -208,6 +208,17 @@ std::vector<Int_T> get_prime_factors(Int_T num) {
   return prime_factors;
 }
 
+// get prime factors inclusive
+template<typename Int_T>
+std::vector<Int_T> get_prime_factors_inclusive(Int_T num) {
+  std::vector<Int_T> prime_factors;
+  for(int i = 2; i <= num; ++i) {
+    if(num%i == 0 && is_prime(i)) prime_factors.push_back(i);
+  }
+
+  return prime_factors;
+}
+
 // multiple strs
 template<typename String_T, typename Int_T>
 String_T multiply_strs(String_T num, Int_T multiple) {
