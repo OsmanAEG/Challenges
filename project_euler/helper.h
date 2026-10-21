@@ -488,3 +488,28 @@ Int_T square_digits(Int_T num) {
 
   return result;
 }
+
+// proper divisors
+template<typename Int_T>
+std::vector<Int_T> proper_divisors(Int_T num) {
+  std::vector<Int_T> divisors;
+
+  for(Int_T n = 1; n <= num/2; ++n) {
+    if(num%n == 0) divisors.push_back(n);
+  }
+
+  return divisors;
+}
+
+// sum proper divisors
+template<typename Int_T>
+Int_T sum_proper_divisors(Int_T num) {
+  const auto divisors = proper_divisors(num);
+  Int_T sum = 0;
+
+  for(const auto& divisor : divisors) {
+    sum += divisor;
+  }
+
+  return sum;
+}
