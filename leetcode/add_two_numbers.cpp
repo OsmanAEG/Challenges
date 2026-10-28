@@ -67,6 +67,10 @@ public:
     }
 
     if(l2 != nullptr) {
+      ListNode* node = new ListNode;
+      tail->next = node;
+      tail = tail->next;
+
       while(true) {
         int sum = l2->val + remainder;
 
